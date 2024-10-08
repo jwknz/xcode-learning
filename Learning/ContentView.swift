@@ -8,15 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    let colors = [Color.blue, Color.white, Color.red, Color.yellow]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        ZStack() {
+            
+            HStack(spacing: 20) {
+                
+                ForEach(colors, id: \.self) { color in
+                    
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundStyle(color)
+                    
+                }
+                
+            }
+            
         }
-        .padding()
+        .frame(width: 300, height: 100)
+        .padding(.all)
+        .background(Color.purple)
+        .cornerRadius(20)
+        
     }
+    
 }
 
 #Preview {
